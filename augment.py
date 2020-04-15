@@ -12,8 +12,8 @@ parser.add_argument("-o", "--output", default=Path("."), type=str,
                     help="Output path where augmented images will be saved.")
 parser.add_argument("-gt", "--ground_truth", type=str, help="Extension of the ground truth text files.")
 parser.add_argument("-n", type=int, default=1, help="Number of augmented line image variants to create for each input.")
-parser.add_argument("-mbg", "--mean_background", action="store_true",
-                    default=False, help="Whether to set the background to the mean color of the input line image.")
+parser.add_argument("-bg", "--background", action="store_true",
+                    default=False, help="Whether to add noise to the background of the line image.")
 parser.add_argument("-e", "--enumerate", action="store_true",
                     default=False, help="Enumerate output file names instead of using input file names.")
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             out_filename = Path(args.output, str(counter).zfill(5)).with_suffix("".join(image.suffixes)) if args.enumerate else \
                 Path(args.output, f"{image.name.split('.')[0]}_{str(img_counter).zfill(4)}").with_suffix("".join(image.suffixes))
 
-            aug = Augmentation(img, args.mean_background)
+            aug = Augmentation(img, args.background)
             aug.export(out_filename)
 
             if args.ground_truth:
