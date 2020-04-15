@@ -5,6 +5,11 @@ from random import randint
 import scipy.ndimage as ndi
 import numpy as np
 
+"""
+The code below is a modified version of ocrodeg by NVlabs which was taken from Ocropus-OCR 
+(see: https://github.com/Calamari-OCR/calamari/blob/master/calamari_ocr/ocr/augmentation/data_augmenter.py).
+"""
+
 
 def autoinvert(image):
     assert np.amin(image) >= 0
@@ -40,12 +45,6 @@ def transform_image(image, angle=0.0, scale=1.0, aniso=1.0, translation=(0, 0), 
 
 
 def random_pad(image, horizontal=(0, 100)):
-    """
-
-    :param image:
-    :param horizontal:
-    :return:
-    """
     l, r = np.random.randint(*horizontal, size=1), np.random.randint(*horizontal, size=1)
     return np.pad(image, ((l[0], r[0]), (0, 0)), mode="constant")
 
