@@ -3,7 +3,7 @@ Augment line images for improving OCR datasets
 
 ## CLI
 ```
-usage: augment.py [-h] -i [IMAGES [IMAGES ...]] [-o OUTPUT] [-gt GROUND_TRUTH] [-n N] [-mbg] [-e]
+usage: augment.py [-h] -i [IMAGES [IMAGES ...]] [-o OUTPUT] [-gt GROUND_TRUTH] [-n N] [-bg] [-e]
 
 Augment OCR in the form of line images.
 
@@ -16,7 +16,6 @@ optional arguments:
   -gt GROUND_TRUTH, --ground_truth GROUND_TRUTH
                         Extension of the ground truth text files.
   -n N                  Number of augmented line image variants to create for each input.
-  -mbg, --mean_background
-                        Whether to set the background to the mean color of the input line image.
+  -bg, --background     Whether to add noise to the background of the line image.
   -e, --enumerate       Enumerate output file names instead of using input file names.
 ```
