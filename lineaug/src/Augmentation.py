@@ -1,4 +1,4 @@
-import libs.ocrodeg as ocrodeg
+import lineaug.libs as ocrodeg
 
 import numpy as np
 from PIL import Image

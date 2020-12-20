@@ -1,5 +1,5 @@
-from src.Augmentation import Augmentation
-from src.utils import get_gt, data_from_image
+from lineaug.src import Augmentation
+from lineaug.src.utils import get_gt, data_from_image
 
 from pathlib import Path
 import shutil
@@ -8,10 +8,12 @@ import argparse
 parser = argparse.ArgumentParser(description="Augment OCR in the form of line images.")
 
 parser.add_argument("-i", "--images", required=True, type=str, nargs="*", help="Path to line image(s).")
-parser.add_argument("-o", "--output", default=Path("."), type=str,
+parser.add_argument("-o", "--output", default=Path("../.."), type=str,
                     help="Output path where augmented images will be saved.")
 parser.add_argument("-gt", "--ground_truth", type=str, help="Extension of the ground truth text files. "
-                                                            "Will create new ground truth files for the augmented line images containing the existing ground truth for the associated line (optional).")
+                                                            "Will create new ground truth files for the augmented "
+                                                            "line images containing the existing ground truth for the "
+                                                            "associated line (optional).")
 parser.add_argument("-n", type=int, default=1, help="Number of augmented line image variants to create for each input.")
 parser.add_argument("-bg", "--background", action="store_true",
                     default=False, help="Whether to add noise to the background of the line image.")
