@@ -1,6 +1,12 @@
 # LineAug
 Augment line images for improving OCR datasets 
 
+## Getting Started
+### PyPi 
+`pip install lineaug`
+### Manually
+Run `python setup.py install` inside the clone repository.
+
 ## CLI
 ```
 usage: augment.py [-h] -i [IMAGES [IMAGES ...]] [-o OUTPUT] [-gt GROUND_TRUTH] [-n N] [-bg] [-e]
